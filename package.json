@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npx --yes convex codegen || echo 'Convex codegen skipped'",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "convex:dev": "convex dev",
