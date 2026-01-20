@@ -1,0 +1,13 @@
+{
+  "build": {
+    "command": "npm run build",
+    "destination": "dist"
+  },
+  "redirects": [
+    {
+      "source": "/*",
+      "destination": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
