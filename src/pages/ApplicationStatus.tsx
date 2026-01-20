@@ -19,16 +19,17 @@ export function ApplicationStatus() {
   const email = searchParams.get("email");
 
   // Use secure query if email provided, otherwise regular query
-  const application = useQuery(
-    email && id
-      ? api.queries.getApplicationByEmail
-      : api.queries.getApplication,
-    email && id
-      ? { applicationId: id as any, email }
-      : id
-      ? { applicationId: id as any }
-      : "skip"
+  const secureApplication = useQuery(
+    api.queries.getApplicationByEmail,
+    email && id ? { applicationId: id as any, email: email } : "skip"
   );
+
+  const regularApplication = useQuery(
+    api.queries.getApplication,
+    !email && id ? { applicationId: id as any } : "skip"
+  );
+
+  const application = email ? secureApplication : regularApplication;
 
   if (!id) {
     return (

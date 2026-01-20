@@ -64,8 +64,8 @@ export function ApplicationForm() {
         fullName: data.fullName,
         idNumber: data.idNumber,
         passportNumber: data.passportNumber,
-        passportImageStorageId,
-        personalImageStorageId,
+        passportImageStorageId: passportImageStorageId as any,
+        personalImageStorageId: personalImageStorageId as any,
         email: data.email,
         phone: data.phone,
       });

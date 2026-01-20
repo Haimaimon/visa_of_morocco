@@ -13,7 +13,7 @@ export const sendEmail = action({
     subject: v.string(),
     html: v.string(),
   },
-  handler: async (ctx, args) => {
+  handler: async (_ctx, args) => {
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
     
     if (RESEND_API_KEY) {

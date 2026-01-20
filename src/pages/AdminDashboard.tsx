@@ -98,7 +98,7 @@ export function AdminDashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {applications.map((app) => (
+              {applications?.map((app: any) => (
                 <tr key={app._id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm text-gray-900">
                     {app._id.slice(-8)}
@@ -188,7 +188,7 @@ export function AdminDashboard() {
           <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <h2 className="text-2xl font-bold mb-4">פרטי הבקשה</h2>
             {applications
-              .find((app) => app._id === selectedApplication)
+              ?.find((app: any) => app._id === selectedApplication)
               ?.notes && (
               <div className="mb-4">
                 <label className="block font-semibold mb-2">הערות:</label>
@@ -196,7 +196,7 @@ export function AdminDashboard() {
                   className="input-field"
                   rows={4}
                   defaultValue={
-                    applications.find((app) => app._id === selectedApplication)
+                    applications?.find((app: any) => app._id === selectedApplication)
                       ?.notes
                   }
                 />

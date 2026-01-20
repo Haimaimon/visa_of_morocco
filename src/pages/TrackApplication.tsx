@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
 import { useNavigate } from "react-router-dom";
 import { Search, Shield, AlertCircle, Loader2 } from "lucide-react";
 import { FormInput } from "@/components/FormInput";

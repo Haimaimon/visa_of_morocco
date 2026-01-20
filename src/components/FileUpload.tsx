@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Upload, X, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -22,19 +22,22 @@ export function FileUpload({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null;
-    onChange(file);
-
-    if (file) {
+  // Update preview when value changes
+  React.useEffect(() => {
+    if (value) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result as string);
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(value);
     } else {
       setPreview(null);
     }
+  }, [value]);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    onChange(file);
   };
 
   const handleRemove = () => {
