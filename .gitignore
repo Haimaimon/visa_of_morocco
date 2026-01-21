@@ -27,3 +27,4 @@ dist-ssr
 .convex/
 # Note: convex/_generated/ is needed for build, so it's included in Git
 .env.local
+.env.production
