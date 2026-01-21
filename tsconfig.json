@@ -22,4 +22,7 @@
   },
   "include": ["src", "convex/_generated"],
   "references": [{ "path": "./tsconfig.node.json" }]
+  {
+    "exclude": ["convex", "dist", "node_modules"]
+  }
 }
